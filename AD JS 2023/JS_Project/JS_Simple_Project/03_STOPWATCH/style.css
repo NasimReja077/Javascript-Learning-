@@ -1,0 +1,74 @@
+body{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: aqua;
+}
+
+h1{
+     font-size: 4rem;
+     font-family: Arial, sans-serif;
+     color: hsl(0, 69%, 35%);
+     text-shadow: 1px 1px 2px rgb(91, 232, 173), 0 0 1em rgb(7, 7, 56), 0 0 0.2em rgb(155, 155, 241);
+}
+
+#Container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 90px;
+     border: 5px dashed rgb(235, 235, 240);
+     border-radius: 30px;
+     background-color: rgba(62, 96, 138, 0.836);
+     color: rgba(54, 2, 79, 0.801);
+     padding: 50px;
+     /* font-size: 50px;
+     font-weight: 600; */
+}
+#Display{
+     font-size: 5rem;
+     font-family: monospace;
+     font-weight: bold;
+     color: hsl(0, 0%, 30%);
+     text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+     margin-bottom: 25px;
+}
+
+#Controls-But button{
+     font-size: 1.5rem;
+     font-weight: bold;
+     padding: 15px 20px;
+     margin: 5px;
+     min-width: 125px;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+     color: white;
+     text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+     transition: background-color 0.5s ease;
+}
+#StartButn{
+     background-color: hsl(115, 100%, 40%);
+}
+#StartButn:hover{
+     background-color: hsl(115, 100%, 30%);
+     text-shadow: none;
+}
+
+
+#StopButn{
+     background-color: hsl(10, 90%, 50%);
+}
+#StopButn:hover{
+     background-color: hsl(10, 90%, 40%);
+     text-shadow: none;
+}
+
+
+#ResetButn{
+     background-color: hsl(205, 90%, 60%);
+}
+#ResetButn:hover{
+     background-color: hsl(205, 90%, 50%);
+     text-shadow: none;
+}

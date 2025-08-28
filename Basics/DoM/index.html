@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js function</title>
+</head>
+<body>
+
+    <!-- Document Object open link
+    getElementById
+    GetElementsByClassName()
+    getElementsByName
+    getElementsByTagName
+    JS innerHTML property
+    JS innerText property -->
+
+     <div id="main" class="container">
+          <ul id="nav">
+              <li>Home</li>
+              <li>About</li>
+              <li>Services</li>
+              <li>More About Us</li>
+              <li>Contact Us</li>
+          </ul>
+
+        <form name="form1">
+            Enter Name:<input type="text" name="name"/>
+            <input type="button" onclick="printvalue()" value="print name"/>  
+        </form>  
+
+        <form>  
+            Enter No:<input type="text" id="number" name="number"/><br/>  <!--document.getElementById() method-->
+            <input type="button" value="cube" onclick="getcube()"/>  
+        </form>
+
+        <form> <!--document.getElementsByName() method-->
+            Male:<input type="radio" name="gender" value="male">  
+            Female:<input type="radio" name="gender" value="female">
+            Outer: <input type="radio" name="gender" value="outer"> 
+              
+            <input type="button" onclick="totaleleMents()" value="Total Genders">  
+        </form>  
+
+
+        <p>This is a pragraph</p>  <!--getElementsByTagName-->
+        <p>Here we are going to count total number of paragraphs by getElementByTagName() method.</p>  
+        <p>Let's see the simple example</p>  
+        <p><br></p>
+        <p>Nasim Reja Mondal</p>
+        <p>Samema Suletane</p>
+        <h2>This is h2 tag</h2>  
+        <h2>Your Name</h2>  
+        <h3>This is h3 tag</h3>  
+        <h3>Demons Slayers</h3>  
+        <h3>This is final tag</h3>  
+        <button onclick="countH2()">count h2</button>  
+        <button onclick="countH2()">count h3</button>  
+        <button onclick="countPara()">count paragraph</button>  
+
+      </div>
+
+      <hr>
+
+      <form name="myForm">  <!--JS innerHTML property-->
+        <input type="button" value="comment" onclick="ShowCommentForm()">  
+        <div id="myLocation"></div>  
+      </form>  
+
+
+    <script>
+
+     let main = document.getElementById('main');
+     console.log(main);
+     let nav = document.getElementById('nav');
+     console.log(nav);
+     let containers = document.getElementsByClassName('container');
+     console.log(containers);
+
+     function printvalue(){
+        let name = document.form1.name.value;
+        alert("Welcome :"+name);
+     }
+
+
+
+     function getcube(){
+        let number=document.getElementById("number").value;
+        alert(number*number*number) // Cube number
+     }
+
+     function totaleleMents(){
+        let numGenders =document.getElementsByName("gender");
+        alert("Total Gender numbers :" + numGenders.length);
+     }
+
+     function countPara(){
+        let totalPara=document.getElementsByTagName("p");
+        // var totalpara=document.getElementsByTagName("p");  
+        alert("total Para is :-" + " " + totalPara.length);
+     }
+     function countH2(){
+        let totalH2=document.getElementsByTagName("h2");
+        let totalH3=document.getElementsByTagName("h3");
+        alert("Total H2 para is :-" + " " + totalH2.length);
+        alert("Total H3 para is :-" + " " + totalH3.length);
+     }
+
+
+
+     function ShowCommentForm(){
+        let data="Name:<input type='text' name='name'> <br> <textarea rows="5" cols='50'></textarea> <br> input type = "submit" value='Post Comment'>";
+        document.getElementById('myLocation').innerHTML=data;
+     }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Js loop</title>
+</head>
+<body>
+     <script>
+           // while loop is ranging
+     var i = 10;
+     while (i<=70){
+          document.write("<p>The number is " + i + "</p>");
+          i++;
+     }
+
+     //do while 
+     let i=0;
+     do{
+          console.log(i);
+          i++;
+     }while(i < 5)
+     let i = 0;
+ // Output - 0,1,2,3,4
+
+ // for loop
+ // An array with some elements
+var fruits = ["Apple", "Banana", "Mango", "Orange", "Papaya"];
+for (var i=0; i<fruits.length; i++){
+     document.write("<p>" + fruits[i] + "</p>");
+}
+
+// An object with some properties 
+var person = {"name": "Clark", "surname": "Kent", "age": "36"};
+     
+     // Loop through all the properties in the object  
+     for(var prop in person) {  
+         document.write("<p>" + prop + " = " + person[prop] + "</p>"); 
+     }
+
+      // Iterating over array
+    let letters = ["a", "b", "c", "d", "e", "f"];
+    
+    for(let letter of letters) {
+        document.write(letter + "<br>"); // a,b,c,d,e,f
+    }
+    document.write("<hr>");
+    
+    // Iterating over string
+    let greet = "Hello World!";
+    
+    for(let character of greet) {
+        document.write(character + "<br>"); // H,e,l,l,o, ,W,o,r,l,d,!
+    }
+     </script>
+</body>
+</html>

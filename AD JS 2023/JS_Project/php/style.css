@@ -1,0 +1,190 @@
+*{
+     margin: 0;
+     padding: 0;
+     font-family: Arial, Helvetica, sans-serif;
+}
+html {
+     font-size: 12px;
+     /* background-size: cover; */
+   }
+
+.header{
+     display: inline-flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: nowrap;
+     flex-direction: row;
+     background-color: rgb(26,30,39);
+     color: aqua;
+     padding: 10px;
+     height: 77px;
+     width: 100%;
+}
+
+.header .LOGO{
+     font-size: 30px;
+     font-weight: bolder;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     margin-left: -15px;
+     cursor: pointer;
+}
+
+.header .LOGO span{
+     color: yellow;
+     text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+     transition: text-decoration-color 300ms;
+}
+.header .LOGO span:hover{
+     color: aqua;
+     text-decoration-color: rgb(17, 255, 4);
+}
+
+.header .Header-Liset{
+     display: block;
+}
+
+.header .Header-Liset ul{
+     padding-left: 70px;
+}
+
+.header .Header-Liset li{
+     display: inline-flex;
+     font-size: 25px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-weight: bolder;
+     color: aqua;
+     margin: 10px;
+     cursor: pointer;
+}
+
+.header .avatar {
+     vertical-align: middle;
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     cursor: pointer;
+   }
+
+.Boder {
+     border-bottom: 7px solid gold;
+     background-color: lightgrey;
+}
+
+.head-Banear{
+     width: 100%;
+     height: 70px;
+     background-color: #0e8388;
+     color: aqua;
+     display: inline-flex;
+     padding: 16px;
+     justify-content: space-between;
+     flex-wrap: nowrap;
+}
+
+
+.head-Banear h1{
+     font-size: 25px;
+     font-weight: bolder;
+     font-family:Arial, Helvetica, sans-serif;
+     padding: 10px;
+     margin-right: 40px;
+     margin-top: 12px;
+     text-align: center;
+}
+
+
+.head-Banear h1 span{
+     color: yellow;
+}
+
+.Baner{
+     width: 100%;
+     height: 450px;
+     background-color: #393745;
+     color: aqua;
+     font-size: 17px;
+     font-weight: bolder;
+     font-family: 'Lucida Sans';
+     display: inline-flex;
+     padding: 20px;
+     justify-content: space-around;
+     align-items: baseline;
+     flex-direction: row;
+
+}
+
+
+.Baner .Left-side-text-box{
+     margin: 15px;
+     width: 45%;
+     height: 30px;
+}
+
+.Baner .Left-side-text-box .Top-text{
+     margin-bottom: 10px;
+     font-size: 30px;
+}
+.Baner .Left-side-text-box .Top-text span{
+     color: yellow;
+}
+
+.Baner .Right-side-text-box{
+     margin-left: 15px;
+     display: inline-flex;
+     flex-direction: column;
+     align-items: stretch;
+     justify-content: space-around;
+     flex-wrap: wrap;
+}
+.Baner .Right-side-text-box p{
+     margin-top: 25px;
+}
+
+.Baner .Right-side-text-box p span{
+     color: yellow;
+}
+
+
+.Butten{
+     text-align: center;
+     border-radius: 12px;
+     width: 245px;
+     position: relative;
+     z-index: 1;
+     margin-top: -10%;
+     margin-left: 40%;
+     font-size: 27px;
+     font-weight: bolder;
+     border-radius: 8px;
+     box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+     box-sizing: border-box;
+     color: yellow;
+     cursor: pointer;
+     border: 3px solid yellow;
+}
+
+.Butten:hover{
+     box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+     border: 3px solid wheat;
+     background-color: aqua;
+     color: black;
+}
+.Butten p{
+     margin: 10px;
+}
+
+.Footer{
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     height: 30px;
+     background-color: black;
+     color: white;
+     text-align: center;
+     padding: 5px;
+}
+
+.Footer p{
+     margin: 10px;
+}

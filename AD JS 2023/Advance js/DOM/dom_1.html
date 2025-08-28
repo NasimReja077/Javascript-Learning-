@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+     <!-- <p>
+          What is the DOM?<br>
+          The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
+     </p> -->
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <!-- <input type="password" name="" id=""> -->
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+
+        <button><a href="querySelectorAll_VS_querySelector.html">querySelectorAll vs querySelector</a></button>
+    </div>
+    <script>
+        // document.getElementById('title'); 
+
+        //document.getElementById('title').class;
+        //undefined
+
+        // behind the schreen document understand className
+        //document.getElementById('title').className;
+        //'heading'
+
+        // ======
+        
+        //document.getElementById('title').getAttribute;
+        //ƒ getAttribute() { [native code] }
+        // getAttribute is fanchion. when it call mashion attribute.
+
+        //document.getElementById('title').getAttribute('id');
+        //'title'
+
+        //document.getElementById('title').getAttribute('class');
+        //'heading'
+
+        // ======
+
+        //document.getElementById('title').setAttribute('class', 'test');
+        //undefined
+        //<h1  id="title" class="test">
+        // setAtttribute can overwite in mane code.
+        //document.getElementById('title').setAttribute('class', 'test heading');
+        // undefined
+        //<h1  id="title" class="test heading">
+
+        // ============
+        // const titles = document.getElementById('title');
+        //undefined
+
+        //titles
+        //<h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+
+        //titles.style.backgroundColor = 'pink';
+        //'pink'
+        //titles.style.padding = '20px';
+        //'20px'
+        //titles.style.borderRadius = '17px';
+        //'17px'
+
+        //=========
+        //titles.innerText;
+        //'DOM learning on Chai aur code'
+        //titles.textContent;
+        //'DOM learning on Chai aur code test text'
+        //titles.innerHTML
+
+        // ===============
+        //document.getElementsByClassName('heading')
+
+        //document.querySelector('h1')
+
+        //document.querySelector('#title')
+
+        //document.querySelector('.heading')
+
+        //document.querySelector('input [type="password"]')
+
+        // =============
+
+        //document.querySelector('ul')
+        //const myUL = document.querySelector('ul');
+        //myUL.querySelector('li')
+        //const turnPink = myUL.querySelector('li')
+        //turnPink.style.backgroundColor = "pink";
+        //turnPink.style.padding = "15px"
+        
+        //turnPink.innerText
+        //turnPink.innerText = "five"
+
+        // document.querySelectorAll('li') 
+        //const tempList = document.querySelectorAll('li')
+        // tempList 
+        // const myArray = [1,2,3,4,5]
+        // undefined
+        // myArray
+
+        // ===============
+
+        //const tempLiList = document.querySelectorAll('li')
+        //undefined
+
+        // tempLiList 
+        // tempLiList.style.color = 'green' -> Error
+        // tempLiList[0].style.color = 'green'; -> Right // when sclicet a onle one Eliment
+        //'green'
+        // Look like array but not a array
+
+       // const myH1 = document.querySelectorAll('h1')
+        //myH1
+        //myH1.style.color = 'green' // -> error >> Which eliment you selicet 
+        //myH1[0].style.color = 'green'
+
+        // querySelectorAll vs querySelector
+
+        //tempLilist
+        //temLiList.forEach(function(l){
+            //l.style.backgroundColor = 'green'
+        //})
+
+
+        // ===================
+        //document.getElementsByClassName('list-item')
+        //const tempClassList = document.getElementsByClassName('list-item')
+
+        //tempClassList
+        //tempClassList.forEach(function
+        //(li){console.log(li)})
+
+       // tempClassList
+       //Array.from(tempClassList) // convatina in array
+       //const myConvertedArray = Array.from(tempClassList)
+       //myConvertedArray // function
+       //myConvertedArray.forEach(function(li){
+        //li.style.color = 'pink'
+       //})
+    </script>
+</body>
+</html>
+<!-- https://www.geeksforgeeks.org/html-dom-activeelement-property/?ref=lbp -->
+
+<!-- http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_toggleclass
+http://www.storiesinflight.com/html5/audio.html
+http://unixpapa.com/js/key.html
+drum samples from https://realdrumsamples.com/
+http://www.flatuicolorpicker.com/all
+http://stackoverflow.com/questions/195951/change-an-elements-css-class-with-javascript
+http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_toggleclass -->

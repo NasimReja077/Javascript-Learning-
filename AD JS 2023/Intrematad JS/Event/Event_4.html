@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>MOUSE EVENTS</title>
+     <style>
+          .mrBox{
+               background-color: gold;
+               width: 300px;
+               height: 300px;
+               font-size: 4.5rem;
+               font-weight: bold;
+               display: flex;
+               align-items: center;
+               text-align: center;
+          }
+     </style>
+</head>
+<body>
+     <div class="mrBox">
+          click me 🙃
+     </div>
+
+     <script>
+         // EventListener = listen for specific event to create interactive web pages events: click, mouseover, mouseout
+         //.addEventListener(event, callback);
+
+         const mrBoxs = document.getElementById("mrBox");
+mrBoxs.addEventListener("click", event => {
+  event.target.style.backgroundColor = "tomato";
+  event.target.textContent = "**OUCH! Don't do it again** 😡🤬";
+});
+
+     </script>
+</body>
+</html>

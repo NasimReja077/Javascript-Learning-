@@ -1,0 +1,59 @@
+var, let, const — variable declaration
+
+Primitive data types — String, Number, Boolean, null, undefined, BigInt, Symbol
+
+Non-primitive types — Object, Array, Function
+
+Type coercion and typeof
+
+== vs ===
+
+
+
+# Q1. What's the output?
+let x = 10;
+let y = '10';
+
+console.log(x == y);  // ?
+console.log(x === y); // ?
+🟩 Answer:
+true
+false
+
+Explanation:
+== checks value only (type coercion happens).
+=== checks both value and type.
+---------------
+What is the output of this code?
+let a;
+console.log(typeof a);
+->undefined
+
+The typeof operator is used to determine the data type of its operand.
+In this case, a holds the value undefined.
+Therefore, typeof a evaluates to the string "undefined".
+
+---------------------
+What's the output of this code?
+let arr = [1, "2", true, null, undefined, {name: "Nasim"}];
+arr.forEach((item) => {
+  console.log(typeof item);
+});
+🟩 Answer:
+number
+string
+boolean
+object
+undefined
+object
+# const Student = {
+
+     fullName: "Nasim Reja", // <- all is key
+     age: 22,
+     cgpa: 7.5,
+     isPass: true,
+}
+console.log(Student)
+Student["age"] = Student["age"] + 1
+console.log(Student)
+console.log(Student["cgpa"])

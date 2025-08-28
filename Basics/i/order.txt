@@ -1,0 +1,11 @@
+1. data types
+2. js-loops
+3. condition statement
+4. basic js questions
+5. IIFE.js
+6. variable hoisting
+7. scope
+8. this - let -const
+9. new keyword constructor
+10. dom selector
+11. event handler

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js function</title>
+</head>
+<body>
+    <script>
+    /* function great(name,greetText){
+          console.log(greetText + " " + name);
+          console.log(name + " " + "is a good boy")
+     }
+
+     function sum(a,b,c){
+          let d = a + b + c;
+          return d;
+     }
+     let name1 = "Nasim";
+     let name2 = "Smema";
+     let name3 = "Albart";
+     let greetText = "Good Morning";
+     great(name1 , greetText);
+     great(name2 , greetText);
+     great(name3 , greetText);
+
+     // let returnVal = great(name3);
+     // console.log(returnVal)
+
+     let returnVal =sum(10,25,37);
+     console.log("Your Function Number is "+ " " + returnVal); */
+
+
+     /*// Function witch parameter
+     function hello (fname="Yaho",lname="Baba"){
+          document.write ("Hello" + fname + " " + lname + "<br>");
+     }
+     hello ("Nasimo","Rajue");
+     hello ("bone","Sire");*/
+
+     // Function with return value
+     /*
+     syntax -> return value
+     Function functionName(Parameter1, Parameter2){
+          Statements
+          return value
+     }
+     var a = functionName (Argument1, argument2);
+     */
+
+     function fullName(fname="yahu",lname="Baba"){
+          var a = fname + " - " + lname;
+          return a;
+     }
+     var fn = fullName("Ramu","Shing");
+     document.write(fn);
+
+     function sum (Math,Eng,Sec){
+          var s=Math+Eng+Sec;
+          return s;
+     }
+     function Percentage(tt){
+          var per = tt/300*100;
+          document.write(per);
+     }
+     var total = sum(80,80,80);
+     Percentage(total);
+     
+    </script>
+
+
+</body>
+</html>

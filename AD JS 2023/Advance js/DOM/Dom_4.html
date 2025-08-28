@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-ADD-EDIT-REMOVE</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="langName">
+        <li>Javascript</li>
+    </ul>
+    <button><a href="https://code.tutsplus.com/dom-manipulation-use-queryselector-to-add-and-remove-element-class-names--cms-93903a">Seemore</a></button>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">link</a>
+</body>
+<script>
+    // ADD ITEMS
+
+    // this is not good way for bigdata
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.langName').appendChild(li)
+    }
+    addLanguage("MyNameJsone")
+    addLanguage("java")
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.langName').appendChild(li)
+    }
+
+    addOptiLanguage('golang')
+    addOptiLanguage('Rube')
+
+    // Edit
+    const secondLangues = document.querySelector("li:nth-child(2)")
+    console.log(secondLangues);
+    //secondLangues.innerHTML = "C#"
+    const newLine = document.createElement('li')
+    newLine.textContent = "C++"
+    secondLangues.replaceWith(newLine)
+
+    const firstLangues = document.querySelector("li:first-child")
+    firstLangues.outerHTML = '<li>TypeScript</li>'
+
+    // remove
+    const lastLangues = document.querySelector('li:last-child')
+    lastLangues.remove()
+</script>
+</html>

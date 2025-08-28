@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>querySelectorAll vs querySelector</title>
+</head>
+<body>
+     <div>
+          <p>
+               <b>querySelector() Method:</b> The querySelector() method returns the first element within the document which matches a specified CSS selector(s). If multiple elements occurs, then it returns the result for only the first matching element.
+               <br>
+               Syntax: <br>
+               <i>document.querySelector(selectors);</i>
+               <br>
+               <b>It returns the first element which matches the selector.</b>
+          </p>
+          <hr>
+          <p>
+              <b>querySelectorAll():</b> querySelectorAll() returns an array of objects with the elements that match the specified group of selectors.
+              <br>
+              Syntax: <br>
+              <i>document.querySelectorAll(selectors);</i>
+              <i>document.querySelectorAll(selectors)[i];</i>
+          </p>
+          <hr>
+     </div>
+     <div style="text-align:center;">
+
+          <h1 style="color:#5120ce"> 
+               Difference between querySelector() and querySelectorAll() Method:
+               <br>
+               <b style="color:#1c1202c5;font-size:20px;font-weight:bold;"><i>querySelector() returns a single element, querySelectorAll() returns a node list of elements it can find.</i></b>
+          </h1>
+
+          <div style="font-size:20px;font-weight:bold; color:#5120ce" class="testing-btn">Element 1</div> 
+          <div style="font-size:20px;font-weight:bold; color:#5120ce" class="testing-btn">Element 2</div> 
+          <div style="font-size:20px;font-weight:bold; color:#5120ce" class="testing-btn">Element 3</div> 
+          <div style="font-size:20px;font-weight:bold; color:#5120ce" class="testing-btn">Element 4</div>
+          <br>
+
+          <button onClick="qselector()">querySelector</button>
+          <button onClick="qselectorall()">querySelectorAll</button> 
+     </div>
+     <script> 
+          function qselector() { 
+              document.querySelector(".testing-btn") 
+                  .style.color = "#006600"; 
+          } 
+    
+          function qselectorall() { 
+              var x = document 
+                  .querySelectorAll(".testing-btn"); 
+    
+              for (var i = 0; i < x.length; i++) { 
+                  x[i].style.color = "#006600"; 
+              } 
+          }  
+      </script> 
+</body>
+</html>
