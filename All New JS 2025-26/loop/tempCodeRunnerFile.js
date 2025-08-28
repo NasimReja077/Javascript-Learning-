@@ -1,6 +1,7 @@
-const coding = ["js", "ruby", "java", "python", "cpp"]
-
-
-coding.forEach( function (valu){
-  console.log(valu);
+const newNumber = [] // using fore each loop
+myNumbers.forEach((Numb) =>{
+     if(Numb > 6){
+          newNumber.push(Numb)
+     }
 })
+console.log(newNumber);
