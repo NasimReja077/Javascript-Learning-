@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="container">
+    <h1>Title</h1>
+    <p class="text">Paragraph</p>
+  </div>
+  <script>
+    const container = document.getElementById("container");
+
+    // Create and append element
+    const newDiv = document.createElement("div");
+    newDiv.textContent = "Appended Div";
+    newDiv.classList.add("box");
+    container.appendChild(newDiv);
+
+    // Insert element before h1
+    const newSpan = document.createElement("span");
+    newSpan.textContent = "Inserted Span";
+    const h1 = container.querySelector("h1");
+    container.insertBefore(newSpan, h1);
+
+    // Remove element after delay
+    setTimeout(() => {
+      const p = container.querySelector(".text");
+      if (p) container.removeChild(p);
+      console.log(container.innerHTML);
+      // Output after 2s: <span>Inserted Span</span><h1>Title</h1><div class="box">Appended Div</div>
+    }, 2000);
+
+    // Loop to create multiple elements
+    const items = ["Item 1", "Item 2"];
+    items.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      container.appendChild(li);
+    });
+
+    // Conditional check before insertion
+    const newP = document.createElement("p");
+    newP.textContent = "Before Paragraph";
+    if (container.firstElementChild) {
+      container.insertBefore(newP, container.firstElementChild);
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- Output:Initially: <span>Inserted Span</span><p>Before Paragraph</p><h1>Title</h1><p class="text">Paragraph</p><div class="box">Appended Div</div><li>Item 1</li><li>Item 2</li>
+After 2 seconds: <p>Before Paragraph</p><span>Inserted Span</span><h1>Title</h1><div class="box">Appended Div</div><li>Item 1</li><li>Item 2</li> -->
+

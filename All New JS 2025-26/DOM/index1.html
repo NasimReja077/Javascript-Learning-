@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="container">
+    <!-- Comment -->
+    <h1>Title</h1>
+    <p class="text">Paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, ad.</p>
+  </div>
+  <script>
+    const container = document.getElementById("container");
+
+    // parentNode
+    console.log(container.parentNode.tagName); // Output: BODY
+
+    // childNodes with loop
+    container.childNodes.forEach(node => {
+      if (node.nodeType === 1) {
+        node.style.color = "blue"; // Style element nodes
+      } else if (node.nodeType === 8) {
+        console.log(`Comment: ${node.nodeValue}`); // Output: Comment: Comment
+      }
+    });
+
+    // firstChild
+    if (container.firstChild.nodeType === 8) {
+      console.log("First child is a comment");
+    }
+
+    // nextSibling
+    const h1 = container.querySelector("h1");
+    const next = h1.nextElementSibling; // Skip text node
+    if (next) {
+      next.textContent = "Updated Paragraph";
+    }
+
+    // Connection to DOM Manipulation
+    container.appendChild(document.createElement("span")).textContent = "New Span";
+
+    // Connection to Timing Events
+    setTimeout(() => {
+      h1.parentNode.style.backgroundColor = "lightgray"; // Use parentNode
+    }, 2000);
+  </script>
+</body>
+</html>
+
+
+<!-- Output:Console: BODY, Comment: Comment, First child is a comment.
+The <h1> and <p> turn blue, <p> text changes to "Updated Paragraph", a <span> is added, and the container’s background turns gray after 2 seconds.
+ -->

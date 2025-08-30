@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .active { background-color: lightblue; }
+    .highlight { border: 2px solid red; }
+  </style>
+</head>
+<body>
+  <div id="container" class="box" data-type="main">
+    <h1 id="title">Hello, World!</h1>
+    <p class="text">Welcome</p>
+  </div>
+  <script>
+    const container = document.getElementById("container");
+    const title = document.getElementById("title");
+
+    // innerHTML
+    container.innerHTML = "<p>New <b>Content</b></p>";
+
+    // textContent
+    title.textContent = "Updated Title";
+
+    // setAttribute and getAttribute
+    container.setAttribute("data-type", "updated");
+    console.log(container.getAttribute("data-type")); // Output: updated
+
+    // style
+    title.style.color = "green";
+    title.style.fontWeight = "bold";
+
+    // classList
+    container.classList.add("active");
+    if (container.classList.contains("active")) {
+      container.style.padding = "10px";
+    }
+
+    // Combine with creation and timing events
+    const newP = document.createElement("p");
+    newP.textContent = "Dynamic Paragraph";
+    container.appendChild(newP);
+    setTimeout(() => {
+      newP.classList.add("highlight");
+      newP.textContent = "Highlighted!";
+    }, 2000);
+
+    // Loop to update all .text elements
+    document.querySelectorAll(".text").forEach(el => {
+      el.textContent = "Updated via Loop";
+      el.style.fontStyle = "italic";
+    });
+  </script>
+</body>
+</html>
