@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+     //document.getElementById('owl').onclick = function() { alert ("owl clicked") }
+
+     //document.getElementById('owl').addEventListener('click', function() {alert("owl clicked");});
+
+     //document.getElementById('prayer').addEventListener('click', function() {alert("prayer clicked");});
+
+     // event object is passed as an argument, it contains information about the event, such as the target element and mouse position, 
+     //document.getElementById('river').addEventListener('click', function(e) {
+        //console.log(e);
+     //}, false); 
+     // false is for capturing phase, false is default
+    // if true is used, it will be in capturing phase
+    // event propagation is the way in which events travel through the DOM tree
+    // there are two phases of event propagation: capturing and bubbling
+    // capturing phase: the event starts from the root and goes down to the target element
+    // bubbling phase: the event starts from the target element and goes up to the root
+    // example: if you click on a button inside a form, the click event will first be captured by the form element and then bubble up to the document
+    // event propagation has two contexts: capturing and bubbling
+
+// use default (false) for bubbling // event public
+// use true for capturing
+
+     // attachEvent()
+     // attachEvent is deprecated , it is not supported in modern browsers, it was used in older versions of Internet Explorer
+     
+    // jQuery - on
+
+
+    // intervew 
+
+    // type, 
+    // addEventListener in type 
+    // timestamp, 
+    // defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+// event propagation or bubbling
+// bubbling is low to high
+// when i click inner element img -> li -> ul, which script is track big element inside to outside this is call event propagation or bubbling
+ // document.getElementById('images').addEventListener('click', function(e){console.log("Click inside the ul");}, false); 
+
+// document.getElementById('owl').addEventListener('click', function(e){console.log("owl click");}, false); 
+     // output 
+     // owl click // low to high
+     // Click inside the ul
+
+// not link bubbling
+// capturing mode
+     //document.getElementById('images').addEventListener('click', function(e) {console.log("Click inside the ul");}, true); 
+
+     //document.getElementById('owl').addEventListener('click', function(e) {console.log("owl click");}, true); 
+// output 
+// Click inside the ul // high to low
+// owl click
+
+// inner element different not bubbling and outer eliment defarent 
+document.getElementById('images').addEventListener('click', function(e) {console.log("Click inside the ul");}, true);
+
+document.getElementById('owl').addEventListener('click', function(e) {console.log("owl click");}, true); 
+
+
+
+</script>
+</html>
