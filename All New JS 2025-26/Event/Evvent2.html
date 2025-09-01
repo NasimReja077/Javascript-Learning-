@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <!-- Events refarench -->
+      <!-- <button onclick="console.log('button was clicked'); alert('hello!')">Click me</button> -->
+
+      <button id="btn1">Click me</button>
+
+
+      <!-- <button ondblclick="console.log('button was clicked 2 time'); alert('hello!')">Click me 2x time</button> -->
+
+      <!-- <div onmouseover="console.log('You are inside dive')" 
+      style="width: 100px; text-align:center; height:50px; background-color: pink;">This is a box</div> -->
+
+      <div style="width: 100px; text-align:center; height:50px; background-color: pink;">This is a box</div>
+     <script>
+
+          // when a funtion is creat then some spase accore in mamore
+
+          // node.event =()=>{//handle here}
+          let btn1 = document.querySelector("#btn1");
+
+          //btn1.onclick =() =>{
+
+               //console.log("btn1 was clicked");
+               //let a = 25;
+               //a++;
+               //console.log(a); // 26
+          //};
+
+          // btn1.onclick =(e) =>{
+               // console.log(e)
+               // console.log(e.type)
+               // console.log(e.target)
+               // console.log(e.clientX, e.clientY)
+          // }
+
+          btn1.addEventListener("click", (e) =>{ // use event object using (e)
+               console.log("Button1 was clicked.");
+               console.log(e)
+               console.log(e.type)
+               console.log(e.target)
+
+          });
+
+          //btn1.addEventListener("click", () =>{
+               //console.log("button1 was clicked - handler2")
+          //});
+
+           // we can creat mutiplae event handaler for one one event ||
+
+          // btn1.onclick=()=>{console.log("HANDALER 2");}; // output : HANDALER2 // not print 1st event becose set meltipal heldadr then last one over writhe
+
+          let div = document.querySelector("div");
+          // div.onmouseover = (e) => {
+               // console.log("youare insid the div")
+               // console.log(e)
+               // console.log(e.type)
+               // console.log(e.target)
+               // console.log(e.clientX, e.clientY)
+          // }
+
+          // event object 
+          //The event object in JavaScript is a powerful tool that gives you detailed information about what triggered an event—like a mouse click, key press, or form submission. It's automatically passed to event handler functions and lets you respond dynamically to user interactions.
+
+          // it is a special object that has details about the eveent.
+          // All event handlers have access to event object properties and methods
+          // node.event =(e) =>{// handle here}  // e
+          // .target, e.type, e.clintX
+
+          // one problem is onetime onle event can use not mutipale time
+          // bracke this problem use event lisanar
+          // for one event we creat multiple event lisanar
+
+          // event lisanar
+          // node.addEventListener(event, callback) // event -> click event // callback is funtion // callback also call event handaller
+
+          // node.removeEventListener(event, callback)
+
+           btn1.addEventListener("click", () =>{
+               console.log("button1 was clicked - handler1")
+          });
+
+          const handler2 = () =>{
+               console.log("button1 was clicked - handler2")
+          };
+
+          btn1.addEventListener("click", handler2);
+
+          btn1.addEventListener("click", () =>{
+               console.log("button1 was clicked - handler3")
+          });
+
+          btn1.removeEventListener("click", handler2)
+
+
+          //defaultPrevented
+
+
+
+
+
+     </script>
+
+     <!-- NOTES -->
+     <!-- in inline event and screapt event (in script.js) bouth 2 event run then only exgecute screapt events (more parority) -->
+</body>
+</html>

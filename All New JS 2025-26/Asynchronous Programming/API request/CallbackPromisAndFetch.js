@@ -1,35 +1,42 @@
-const promiseOne = new Promise(function(resolve, reject){
-     //Do an async task
-     // DB calls, cryptography, network
+const promiseOne = new Promise(function(resolve, reject){ // propis is creted 
+     //Do an async task // DB calls, cryptography, network
      setTimeout(function(){
          console.log('Async task is compelete');
-         resolve()
+         resolve() // his is mathode // it is connact to .then
      }, 1000)
  })
- 
- promiseOne.then(function(){
+ //Promise consumed"
+ promiseOne.then(function(){ // then is related to resolve // In .then have callback or funtion this fution automatiocly one augrument call
      console.log("Promise consumed");
  })
  
- new Promise(function(resolve, reject){
+// Async task is compelete // firest task is complite then resolve() then Promise consumed
+// Promise consumed
+
+// ========================================
+
+ new Promise(function(resolve, reject){ // not store any vareable that by use .then
      setTimeout(function(){
          console.log("Async task 2");
-         resolve()
+         resolve() 
      }, 1000)
  
  }).then(function(){
      console.log("Async 2 resolved");
  })
+
  
- const promiseThree = new Promise(function(resolve, reject){
+ //==============================
+ 
+ const promiseThree = new Promise(function(resolve, reject){ // (resolve, reject) this is fution
      setTimeout(function(){
-         resolve({username: "Chai", email: "chai@example.com"})
+         resolve({username: "Chai", email: "chai@example.com"}) // () this parametter pass data
      }, 1000)
  })
  
  promiseThree.then(function(user){
      console.log(user);
- })
+ }) // output: { username: 'Chai', email: 'chai@example.com' }
  
  const promiseFour = new Promise(function(resolve, reject){
      setTimeout(function(){
@@ -37,7 +44,7 @@ const promiseOne = new Promise(function(resolve, reject){
          if (!error) {
              resolve({username: "hitesh", password: "123"})
          } else {
-             reject('ERROR: Something went wrong')
+             reject('ERROR: Something went wrong') // ERROR: Something went wrong
          }
      }, 1000)
  })
@@ -50,9 +57,10 @@ const promiseOne = new Promise(function(resolve, reject){
      console.log(username);
  }).catch(function(error){
      console.log(error);
- }).finally(() => console.log("The promise is either resolved or rejected"))
+ }).finally(() => console.log("The promise is either resolved or rejected")) // this use in laset when all task is complite 
  
  
+ // =============================
  
  const promiseFive = new Promise(function(resolve, reject){
      setTimeout(function(){
@@ -76,6 +84,8 @@ const promiseOne = new Promise(function(resolve, reject){
  
  consumePromiseFive()
  
+
+ // fetch
  // async function getAllUsers(){
  //     try {
  //         const response = await fetch('https://jsonplaceholder.typicode.com/users')

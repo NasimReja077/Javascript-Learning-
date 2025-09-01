@@ -1,0 +1,4 @@
+// v8 Engine. 
+// https://youtu.be/q3Wsoa7wfDg?si=_U1hsqWn2yiwfR64
+// https://www.youtube.com/watch?v=2WJL19wDH68
+// console.log
