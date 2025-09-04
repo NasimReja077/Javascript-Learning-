@@ -1,0 +1,41 @@
+Enumerable in JavaScript
+In JavaScript, enumerable is a property attribute that determines if a property will be included when an object's properties are listed or iterated over. The for...in loop and Object.keys() method only include enumerable properties. Most of the properties you create on a regular object are enumerable by default.
+
+A property's enumerable status is part of its property descriptor. This descriptor is what defines a property's characteristics, such as its value, whether it's writable, configurable, or enumerable.
+
+How to Check and Change Enumerable Properties
+You can check if a property is enumerable using the Object.prototype.propertyIsEnumerable() method.
+
+You can also create or modify a property and set its enumerable attribute using Object.defineProperty() or Object.defineProperties(). Setting the enumerable value to false will hide the property from standard enumeration methods.
+
+Example
+Here's a simple example showing the difference between an enumerable and a non-enumerable property.
+
+JavaScript
+
+const myObject = {
+  a: 1, // 'a' is enumerable by default
+  b: 2, // 'b' is enumerable by default
+};
+
+// Define a new property 'c' and make it non-enumerable
+Object.defineProperty(myObject, 'c', {
+  value: 3,
+  enumerable: false, // This makes the property non-enumerable
+});
+
+// Using a for...in loop to iterate over properties
+for (const key in myObject) {
+  console.log(key); // Output: a, b
+}
+
+// Using Object.keys()
+console.log(Object.keys(myObject)); // Output: [ 'a', 'b' ]
+
+// The property 'c' exists, but it's not enumerable
+console.log(myObject.c); // Output: 3
+
+// Check if a property is enumerable
+console.log(myObject.propertyIsEnumerable('a')); // Output: true
+console.log(myObject.propertyIsEnumerable('c')); // Output: false
+As you can see, the for...in loop and Object.keys() only show properties a and b, ignoring c because its enumerable attribute was set to false.
