@@ -1,5 +1,2 @@
-function addTwoNumbers(number1, number2){
-     // let result = number1 + number2; 
-     // return result
-     return number1 + number2
-}
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits.includes("Banana", 3))

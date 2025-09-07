@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <p>First paragraph</p>
+<p>Second paragraph</p>
+
+<div class="boxOne">Box 1</div>
+<div class="boxOne">Box 2</div>
+
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+
+
+<div id="header">Header</div>
+  <h3 class="content">Paragraph 1</h3>
+  <h3 class="content">Paragraph 2</h3>
+  <span data-type="info">Info Span</span>
+
+</body>
+<script>
+     const paragraph = document.getElementsByTagName('p');
+     for (let p of paragraph){
+          p.textContent = "Hi"
+     }
+     console.log(paragraph)
+  // HTMLCollection with 2 <p> elements
+
+
+     const firstBox = document.querySelector(".boxOne");
+     firstBox.style.backgroundColor = "red";
+     console.log(firstBox);
+
+     const boxo = document.querySelectorAll(".box");
+     boxo.forEach(box =>{
+          box.style.border = "1px solid black"
+     })
+
+
+     const headers = document.getElementById("header")
+     headers.textContent = "update header by getElementById it is not live";
+
+     const contentsColors = document.getElementsByClassName("content")
+     for(let content of contentsColors){ // content is my one name 
+          content.style.color = "pink"
+     }
+     const paragraphHeading = document.getElementsByTagName('h3');
+     for (let h3 of paragraphHeading){
+          p.style.fontWeight = "bold";
+     }
+
+     const firstContent = document.querySelector('.content');
+    firstContent.style.backgroundColor = 'yellow';
+
+   // const allElements = document.querySelectorAll("[data-type="info"]")
+   // allElements.forEach(e1 => {
+    // e1.textContent = "Updated Info by querySelectorAll and forEach. "
+   // });
+
+     
+</script>
+</html>

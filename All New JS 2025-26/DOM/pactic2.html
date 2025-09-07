@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Event Delegation with querySelectorAll
+
+</title>
+</head>
+<body>
+     <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <button id="changeColor">Change Color</button>
+
+     <ul id="lists">
+          <li class="items">Item Box 1</li>
+          <li class="items">Item Box 2</li>
+     </ul>
+     
+     <button id="addBtn">Add Item</button>
+
+     
+     <div class="container">
+  <p class="text">First</p>
+  <p class="text">Second</p>
+  <p>Can use '*' to select all elements (e.g., document.getElementsByTagName('*')).</p>
+</div>
+
+<a href="#" class="link" data-type="external">Link 1</a>
+<a href="#" class="link">Link 2</a>
+
+</body>
+<script>
+      // Event delegation with querySelectorAll
+  document.getElementById('lists').addEventListener('click', (e) => {
+    if (e.target.classList.contains('items')) {
+      e.target.style.color = 'red';
+    }
+  });
+
+  // Add new item
+  document.getElementById('addBtn').addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.className = 'items';
+    li.textContent = `Item ${document.querySelectorAll('.items').length + 1}`;
+    document.getElementById('lists').appendChild(li);
+  });
+
+  document
+  .getElementById("changeColor")
+  .addEventListener("click", () =>{
+     const boxes = document.getElementsByClassName("box");
+     for (let box of boxes){
+          box.style.backgroundColor = "Blue";
+     }
+  });
+
+  const firstText = document.querySelector('.container .text');
+firstText.style.fontWeight = 'bold'; // Only "First" becomes bold.
+
+  const externalLinks = document.querySelectorAll('.link[data-type="external"]');
+  externalLinks.forEach(link => {
+     link.style.color = "red";
+  })
+  
+</script>
+</html>

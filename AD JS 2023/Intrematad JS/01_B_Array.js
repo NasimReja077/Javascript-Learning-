@@ -43,8 +43,8 @@ By using an Array constructor (using new keyword)*/
 // const pets = ['cat', 'dog', 'bat'];
 // console.log(pets.includes('cat')); // true
 
-// const fruits = ["Banana", "Orange", "Apple", "Mango"];
-// console.log(fruits.includes("Banana", 3))
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits.includes("Banana", 3))  // false
 
 // The includes() method of Array instances determines whether an array includes a certain value among its entries, returning true or false as appropriate. 
 

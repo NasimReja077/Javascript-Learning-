@@ -211,21 +211,21 @@
 // }
 
 
-// function api(){
-//      return new Promise((resolve, reject) =>{
-//           setTimeout(() => {
-//                console.log("API data fetched");
-//                resolve(200);
-//           }, 200);
-//      });
-// }
+function api(){
+     return new Promise((resolve, reject) =>{
+          setTimeout(() => {
+               console.log("API data fetched");
+               resolve(200);
+          }, 200);
+     });
+}
 
-// async function getApiData() {
-//      await api(); // wait for the promise to resolve
-//      console.log("1 API data processed");
-//      await api(); // wait for the promise to resolve
-//      console.log("2 API data processed");
-// }
+async function getApiData() {
+     await api(); // wait for the promise to resolve
+     console.log("1 API data processed");
+     await api(); // wait for the promise to resolve
+     console.log("2 API data processed");
+}
 
 
 

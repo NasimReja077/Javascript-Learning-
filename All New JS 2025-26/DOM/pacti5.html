@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <input id="taskInput" type="text" placeholder="Enter task">
+  <button id="addBtn">Add Task</button>
+  <ul id="taskList"></ul>
+
+ <script>
+    let taskId = 1;
+    const input = document.getElementById('taskInput');
+    const btn = document.getElementById('addBtn');
+    const list = document.getElementById('taskList');
+
+    btn.addEventListener('click', () => {
+      const task = input.value.trim();
+      if (task) {
+        const li = document.createElement('li');
+        li.innerHTML = `${task} <button>Delete</button>`;
+        li.setAttribute('data-id', taskId++);
+        li.querySelector('button').addEventListener('click', () => li.remove());
+        list.appendChild(li);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
