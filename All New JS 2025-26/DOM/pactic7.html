@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <div id="parent">
+          <p id="child">Child</p>
+     </div>
+
+     <ul id="list">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <!-- Comment -->
+     </ul>
+
+     <!-- <div id="container">
+          <p>First</p>
+          Text
+          <p>Last</p>
+     </div> -->
+
+     <ul id="list2">
+          <li id="item1">Item 1</li>
+          <li id="item2">Item 2</li>
+          <li id="item3">Item 3</li>
+     </ul>
+
+     <div id="container">
+    <p id="child1">Child 1</p>
+    <p id="child2">Child 2</p>
+    <p id="child3">Child 3</p>
+  </div>
+
+  <div id="container5">
+    <p>First Boy</p>
+    Text Boy
+    <p>Last Boy</p>
+  </div>
+
+
+</body>
+<script>
+     const child = document.getElementById("child")
+     const parent = child.parentNode
+     console.log(parent.id);
+     parent.style.backgroundColor = "lightblue";
+
+
+     const list = document.getElementById("list");
+     const children = list.children;
+     console.log("children length is :",children.length);
+     for(let child of children){
+          child.style.color = "blue";
+     }
+
+     //const container = document.getElementById('container');
+     //console.log(container.firstChild); // Text node (" ")
+     //console.log(container.lastChild); // <p>Last</p>
+     //if (container.firstChild.nodeType === 1) {
+     //     container.firstChild.style.color = 'red';
+     //}
+
+      const item2 = document.getElementById('item2');
+      const next = item2.nextSibling;
+      const prev = item2.previousSibling;
+      if(next && next.nodeType === 1){
+          next.style.color = "pink";
+      }
+
+
+      const child2 = document.getElementById("child2");
+
+      const parent2 = child2.parentNode;
+      parent2.style.backgroundColor = "lightblue";
+
+      const sibling = parent2.children;
+      for (let child of sibling){
+          child.style.border = "2px solid black";
+      }
+      // firstChild/lastChild
+    console.log(parent2.firstChild); // Text node (whitespace)
+    console.log(parent2.lastChild); // <p id="child3">Child 3</p>
+
+    // nextSibling/previousSibling
+    const next2 = child2.nextSibling; // <p id="child3">Child 3</p>
+    const prev2 = child2.previousSibling; // <p id="child1">Child 1</p>
+    if (next2 && next2.nodeType === 1) {
+      next2.style.color = 'green';
+    }
+
+    const container5 = document.getElementById("container5");
+    const firstElement = container5.firstElementChild;
+    const lastEliment = container5.lastElementChild;
+    firstElement.style.color = "pink";
+    lastEliment.style.color = "green";
+
+
+
+</script>
+</html>
