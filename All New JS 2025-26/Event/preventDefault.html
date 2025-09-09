@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="form">
+    <input type="text" name="name" placeholder="Enter name">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="output"></p>
+  <script>
+    const form = document.getElementById('form');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Requires e
+      output.textContent = `Submitted: ${e.target.elements.name.value}`;
+    });
+  </script>
+</body>
+</html>
+
+<!-- Explanation: e.preventDefault() stops the form submission, and e.target accesses the form’s input value. -->
+

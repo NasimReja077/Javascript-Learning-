@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Click Counter</title>
+</head>
+<body>
+     <button id="btn">Click Me</button>
+     <span id="count">0</span>
+     <br>
+     <hr>
+     <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <button id="addBtn">Add Item</button>
+  <hr>
+  
+  <input id="email" type="email" placeholder="Enter email">
+  <div id="error"></div>
+
+
+</body>
+<script>
+     let count = 0;
+     const btn = document.getElementById("btn");
+     const countSpan = document.getElementById("count");
+     btn.addEventListener("click", () =>{
+          countSpan.textContent = count++;
+     });
+
+     const list = document.getElementById('list');
+    const addBtn = document.getElementById('addBtn');
+    let itemCount = 3;
+
+    list.addEventListener('click', (e) => {
+      if (e.target.tagName === 'LI') {
+        e.target.style.color = 'red';
+      }
+    });
+
+    addBtn.addEventListener('click', () => {
+      const li = document.createElement('li');
+      li.textContent = `Item ${itemCount++}`;
+      list.appendChild(li);
+    });
+    
+    const email = document.getElementById('email');
+    const error = document.getElementById('error');
+
+    email.addEventListener("input", (e) => {
+     const value = e.target.value;
+     if (!value.includes("@")){
+          error.textContent = "Invalid email";
+          error.style.color = "red";
+     }else{
+          error.textContent = "";
+     }
+    })
+</script>
+</html>

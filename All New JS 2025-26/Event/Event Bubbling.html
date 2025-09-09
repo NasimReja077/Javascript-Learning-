@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="parent" style="background: lightblue; padding: 20px;">
+    <button id="child">Click Me</button>
+  </div>
+  <p id="output"></p>
+  <script>
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+    const output = document.getElementById('output');
+
+    parent.addEventListener('click', (e) => {
+      output.textContent += 'Parent clicked\n';
+    });
+
+    child.addEventListener('click', (e) => {
+      output.textContent += `Child clicked (Target: ${e.target.tagName})\n`;
+    });
+  </script>
+</body>
+</html>
+<!-- Output: Clicking the button displays:
+
+Child clicked (Target: BUTTON)
+Parent clicked
+
+Explanation:Clicking the button triggers the child listener first (target phase), then bubbles up to the parent listener (bubbling phase). -->
+

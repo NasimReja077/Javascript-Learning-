@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="container">
+    <a href="https://example.com">লিঙ্ক ১</a>
+    <a href="https://example.com">লিঙ্ক ২</a>
+  </div>
+  <p id="output"></p>
+  <script>
+    const container = document.getElementById('container');
+    const output = document.getElementById('output');
+
+    container.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        e.preventDefault(); // লিঙ্ক নেভিগেশন বন্ধ করে
+        output.textContent = `ক্লিক করা লিঙ্ক: ${e.target.textContent}`;
+      }
+    });
+  </script>
+</body>
+</html>

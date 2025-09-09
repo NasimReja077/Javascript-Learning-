@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="parent" style="background: lightblue; padding: 20px;">
+    <button id="child">Click Me</button>
+  </div>
+  <p id="output"></p>
+  <script>
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+    const output = document.getElementById('output');
+
+    parent.addEventListener('click', (e) => {
+      output.textContent += 'Parent clicked\n';
+    });
+
+    child.addEventListener('click', (e) => {
+      e.stopPropagation(); // Stops bubbling
+      output.textContent += 'Child clicked\n';
+    });
+  </script>
+</body>
+</html>
+
+<!-- Explanation:e.stopPropagation() prevents the event from bubbling to the parent, so only the child’s handler fires. -->
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>counter</title>
+</head>
+<body>
+     <button id="btn1">Button 1</button>
+     <button id="btn2">Button 2</button>
+     <p id="output"></p>
+</body>
+<script>
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const output = document.getElementById('output');
+    let count = 0;
+
+    // Without e: Simple counter
+    btn1.addEventListener('click', () => {
+      output.textContent = `Count: ${count++}`;
+    });
+
+    // With e: Access event details
+    btn2.addEventListener('click', (e) => {
+      output.textContent = `Clicked ${e.target.id}, Count: ${count++}`;
+    });
+  </script>
+  <!-- Output:
+     Clicking btn1: “Count: 0”, “Count: 1”, etc. (no event details).
+
+     Clicking btn2: “Clicked btn2, Count: 0”, “Clicked btn2, Count: 1”, etc. (includes button ID from e.target).
+
+     Explanation:btn1’s handler doesn’t use e, so it only updates the counter.
+     
+     btn2’s handler uses e to access e.target.id, providing specific information about the clicked button. -->
+</html>

@@ -1,0 +1,38 @@
+const btn = document.getElementById('btn');
+let count = 0;
+btn.addEventListener('click', () => {
+  console.log(count++); // No access to event details
+});
+
+
+
+const btn = document.getElementById('btn');
+let count = 0;
+btn.addEventListener('click', (e) => {
+  console.log(`Clicked ${e.target.tagName}, count: ${count++}`);
+});
+
+
+
+Key Difference:() => {} ignores the Event object, limiting you to actions that don’t require event-specific data.
+(e) => {} captures the Event object, enabling access to its properties and methods for more complex interactions.
+
+
+
+ Why Use e?
+ The Event object (e) is essential when you need to:Access Event Details:Identify the element that triggered the event (e.target).
+Get event-specific data like mouse coordinates (e.clientX, e.clientY) or key pressed (e.key).
+Example: Log which button was clicked in a group of buttons.
+
+Control Event Behavior:Prevent default actions (e.preventDefault()), e.g., stopping a form submission.
+Stop event propagation (e.stopPropagation()), e.g., preventing a parent handler from firing.
+Example: Prevent a link from navigating to a URL.
+
+Implement Event Delegation:Use e.target to handle events on child elements via a parent listener.
+Example: Handle clicks on dynamically added list items.
+
+Access Modifier Keys or Event Context:Check if Ctrl, Shift, or Alt was pressed (e.ctrlKey, e.shiftKey, e.altKey).
+Example: Detect a Ctrl + Click action.
+
+If the handler doesn’t need these details (e.g., just updating a counter or toggling a state), you can omit e for cleaner code.
+
