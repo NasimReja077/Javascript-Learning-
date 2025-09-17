@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <<button id="btn1">Button 1</button>
+  <button id="btn2">Button 2</button>
+  <p id="output"></p>
+  <script>
+    const output = document.getElementById('output');
+    const clickCounts = new Map(); // Creates a new, empty Map object to store key-value pairs, where keys are button elements and values are their click counts.
+
+    document.querySelectorAll("button").forEach((btn) =>{
+     clickCounts.set(btn, 0);
+     btn.addEventListener("click", (e) => {
+          const count = clickCounts.get(e.target) + 1;
+          clickCounts.set(e.target, count);
+          output.textContent = `Button ${e.target.id} clicked ${count} times`;
+    })
+})
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    input, select, button {
+      padding: 8px;
+      margin: 5px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h2>Inventory System</h2>
+  <div class="form-group">
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" placeholder="Enter product name">
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" placeholder="Enter quantity" min="0">
+    <button id="addBtn">Add Product</button>
+  </div>
+  <div class="form-group">
+    <label for="searchName">Search Product Name:</label>
+    <input type="text" id="searchName" placeholder="Enter product name to search">
+    <button id="searchBtn">Get Quantity</button>
+    <button id="deleteBtn">Delete Product</button>
+  </div>
+  <div id="output">No products added yet.</div>
+
+  <script>
+    const inventory = new Map();
+    const output = document.getElementById('output');
+    const addBtn = document.getElementById('addBtn');
+    const searchBtn = document.getElementById('searchBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const productNameInput = document.getElementById('productName');
+    const quantityInput = document.getElementById('quantity');
+    const searchNameInput = document.getElementById('searchName');
+
+    // Function to update output display
+    function updateOutput() {
+      if (inventory.size === 0) {
+        output.textContent = 'No products added yet.';
+        return;
+      }
+      output.textContent = 'Inventory:\n';
+      inventory.forEach((quantity, product) => {
+        output.textContent += `${product}: ${quantity} units\n`;
+      });
+    }
+
+    // Add product event listener
+    addBtn.addEventListener('click', (e) => {
+      const name = productNameInput.value.trim();
+      const quantity = parseInt(quantityInput.value);
+
+      if (!name || isNaN(quantity) || quantity < 0) {
+        alert('Please enter a valid product name and non-negative quantity.');
+        return;
+      }
+
+      inventory.set(name, quantity);
+      updateOutput();
+      productNameInput.value = '';
+      quantityInput.value = '';
+    });
+
+    // Search product event listener
+    searchBtn.addEventListener('click', (e) => {
+      const name = searchNameInput.value.trim();
+      if (!name) {
+        alert('Please enter a product name.');
+        return;
+      }
+
+      if (inventory.has(name)) {
+        const quantity = inventory.get(name);
+        output.textContent = `Product: ${name}, Quantity: ${quantity} units`;
+      } else {
+        output.textContent = `No product found with name "${name}".`;
+      }
+    });
+
+    // Delete product event listener
+    deleteBtn.addEventListener('click', (e) => {
+      const name = searchNameInput.value.trim();
+      if (!name) {
+        alert('Please enter a product name.');
+        return;
+      }
+
+      if (inventory.has(name)) {
+        inventory.delete(name);
+        updateOutput();
+        searchNameInput.value = '';
+      } else {
+        output.textContent = `No product found with name "${name}".`;
+      }
+    });
+  </script>
+</body>
+</html>

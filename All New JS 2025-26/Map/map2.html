@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Iterating with for...of</title>
+</head>
+<body>
+     <h1>Uses for...of to iterate over entries, preserving order.</h1>
+     <p id="output"></p>
+     <script>
+          const output = document.getElementById("output");
+          const myMap = new Map([
+               ["Apple", 10],
+               ["Banana", 20],
+               ["Orange", 30]
+          ]);
+
+          for (const [key, value] of myMap){
+               output.innerHTML += `${key}: ${value}\n`;
+          }
+     </script>
+</body>
+</html>

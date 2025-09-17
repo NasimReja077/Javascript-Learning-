@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p id="output"></p>
+  <script>
+    const output = document.getElementById('output');
+    const myMap = new Map();
+
+    myMap.set('name', 'Alice');
+    myMap.set(1, 'one');
+    myMap.set({ id: 1 }, 'objectKey');
+
+    output.textContent += `Size: ${myMap.size}\n`;
+    output.textContent += `Has 'name': ${myMap.has('name')}\n`;
+    output.textContent += `Get 'name': ${myMap.get('name')}\n`;
+
+    myMap.delete('name');
+    output.textContent += `After delete, size: ${myMap.size}\n`;
+  </script>
+</body>
+</html>

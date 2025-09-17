@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Role Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    input, select, button {
+      padding: 8px;
+      margin: 5px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>User Role Manager</h2>
+  <div class="form-group">
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" placeholder="Enter user ID">
+    <label for="userName">User Name:</label>
+    <input type="text" id="userName" placeholder="Enter user name">
+    <label for="role">Role:</label>
+    <select id="role">
+      <option value="Admin">Admin</option>
+      <option value="User">User</option>
+      <option value="Guest">Guest</option>
+    </select>
+    <button id="addBtn">Add User</button>
+  </div>
+  <div class="form-group">
+    <label for="searchId">Search User ID:</label>
+    <input type="number" id="searchId" placeholder="Enter user ID to search">
+    <button id="searchBtn">Get Role</button>
+    <button id="deleteBtn">Delete User</button>
+  </div>
+  <div id="output">No users added yet.</div>
+
+  <script>
+    const userRoles = new Map();
+    const output = document.getElementById('output');
+    const addBtn = document.getElementById('addBtn');
+    const searchBtn = document.getElementById('searchBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const userIdInput = document.getElementById('userId');
+    const userNameInput = document.getElementById('userName');
+    const roleSelect = document.getElementById('role');
+    const searchIdInput = document.getElementById('searchId');
+
+    // Function to update output display
+    function updateOutput() {
+      if (userRoles.size === 0) {
+        output.textContent = 'No users added yet.';
+        return;
+      }
+      output.textContent = 'Users and Roles:\n';
+      userRoles.forEach((role, user) => {
+        output.textContent += `ID: ${user.id}, Name: ${user.name}, Role: ${role}\n`;
+      });
+    }
+
+    // Add user event listener
+    addBtn.addEventListener('click', (e) => {
+      const id = parseInt(userIdInput.value);
+      const name = userNameInput.value.trim();
+      const role = roleSelect.value;
+
+      if (!id || !name) {
+        alert('Please enter a valid ID and name.');
+        return;
+      }
+
+      const user = { id, name };
+      userRoles.set(user, role);
+      updateOutput();
+      userIdInput.value = '';
+      userNameInput.value = '';
+    });
+
+    // Search user event listener
+    searchBtn.addEventListener('click', (e) => {
+      const id = parseInt(searchIdInput.value);
+      if (!id) {
+        alert('Please enter a valid ID.');
+        return;
+      }
+
+      let found = false;
+      userRoles.forEach((role, user) => {
+        if (user.id === id) {
+          output.textContent = `User ID: ${user.id}, Name: ${user.name}, Role: ${role}`;
+          found = true;
+        }
+      });
+
+      if (!found) {
+        output.textContent = `No user found with ID ${id}.`;
+      }
+    });
+
+    // Delete user event listener
+    deleteBtn.addEventListener('click', (e) => {
+      const id = parseInt(searchIdInput.value);
+      if (!id) {
+        alert('Please enter a valid ID.');
+        return;
+      }
+
+      let found = false;
+      userRoles.forEach((role, user) => {
+        if (user.id === id) {
+          userRoles.delete(user);
+          found = true;
+        }
+      });
+
+      if (found) {
+        updateOutput();
+        searchIdInput.value = '';
+      } else {
+        output.textContent = `No user found with ID ${id}.`;
+      }
+    });
+  </script>
+</body>
+</html>
