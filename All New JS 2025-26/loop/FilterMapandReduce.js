@@ -120,6 +120,6 @@ const shoopCard = [
          price: 12999
      },
  ]
- const pricePay = shoopCard.reduce((acc,item) => acc + item.price,0)
+ const pricePay = shoopCard.reduce((acc,item) => acc + item.price,0) // 0 is start value
  console.log(pricePay)
  
