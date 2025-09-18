@@ -1,3 +1,5 @@
+// https://dev.to/srishtikprasad/mapfilterreduce-with-important-interview-questions-1ae5
+
 // What is the filter() Method?
 // The filter() method is a built-in JavaScript array method introduced in ECMAScript 5 (ES5). It iterates over each element in an array, applies a test function (callback), and returns a new array containing only the elements that satisfy the condition (i.e., for which the callback returns true). The original array remains unchanged, making filter() a non-mutating method.
 
@@ -29,12 +31,12 @@ const oddNum = numbers.filter((num => num % 2 !== 0));
 console.log(oddNum); // [ 1, 3, 5 ]
 
 // Filter Objects by Property
-const users = [
+const users1 = [
   { name: 'Alice', age: 25 },
   { name: 'Bob', age: 30 },
   { name: 'Charlie', age: 20 }
 ];
-const adults = users.filter(user => user.age >= 25);
+const adults = users1.filter(user => user.age >= 25);
 console.log(adults); // [ { name: 'Alice', age: 25 }, { name: 'Bob', age: 30 } ]
 
 
@@ -180,12 +182,12 @@ console.log(positiveSet); // Set { 10, 15, 20, 25, 30 }
 // Filtering a MapExample 4: 
 // Filter by Value
 
-const scores = new Map([
+const scores5 = new Map([
   ['Alice', 95],
   ['Bob', 80],
   ['Charlie', 60]
 ]);
-const highScores = new Map([...scores].filter(([name, score]) => score >= 85));
+const highScores = new Map([...scores5].filter(([name, score]) => score >= 85));
 console.log(highScores); // Map { 'Alice' => 95 }
 
 // Filter by Key
