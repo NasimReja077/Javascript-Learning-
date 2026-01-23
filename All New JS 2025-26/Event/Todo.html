@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo • Dark/Light</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #212529;
+      --card: white;
+      --border: #dee2e6;
+      --accent: #0d6efd;
+      --done: #6c757d;
+    }
+    [data-theme="dark"] {
+      --bg: #212529;
+      --text: #f8f9fa;
+      --card: #343a40;
+      --border: #495057;
+      --accent: #6ea8fe;
+      --done: #adb5bd;
+    }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      transition: background 0.4s, color 0.4s;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    #new-todo {
+      flex: 1;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card);
+      color: var(--text);
+    }
+    button {
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+    }
+    button:hover { opacity: 0.92; }
+    #theme-toggle {
+      background: #6c757d;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      background: var(--card);
+      padding: 1rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.2s;
+    }
+    li.done {
+      opacity: 0.7;
+      text-decoration: line-through;
+      color: var(--done);
+    }
+    .delete-btn {
+      margin-left: auto;
+      background: #dc3545;
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .delete-btn:hover { background: #c82333; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Todo List</h1>
+
+  <div class="controls">
+    <input id="new-todo" placeholder="What needs to be done?" autofocus />
+    <button id="theme-toggle">🌓 Theme</button>
+  </div>
+
+  <ul id="todo-list"></ul>
+</div>
+
+<script>
+// ────────────────────────────────────────────────
+//  TODOS PROJECT – full modern event handling
+// ────────────────────────────────────────────────
+
+const todoList   = document.querySelector('#todo-list');
+const input      = document.querySelector('#new-todo');
+const themeBtn   = document.querySelector('#theme-toggle');
+const htmlRoot   = document.documentElement;
+
+// ── Custom Events ───────────────────────────────────────
+const THEME_CHANGED = 'theme:changed';
+
+// ── Theme logic ─────────────────────────────────────────
+function toggleTheme() {
+  const current = htmlRoot.dataset.theme;
+  const next    = current === 'dark' ? 'light' : 'dark';
+
+  htmlRoot.dataset.theme = next;
+  localStorage.setItem('preferred-theme', next);
+
+  // Notify everyone
+  window.dispatchEvent(new CustomEvent(THEME_CHANGED, {
+    detail: { theme: next },
+    bubbles: true
+  }));
+}
+
+themeBtn.addEventListener('click', toggleTheme);
+
+// Load saved theme
+const savedTheme = localStorage.getItem('preferred-theme');
+if (savedTheme) {
+  htmlRoot.dataset.theme = savedTheme;
+}
+
+// ── Todo logic ──────────────────────────────────────────
+function addTodo(text) {
+  if (!text.trim()) return;
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <input type="checkbox">
+    <span>${text}</span>
+    <button class="delete-btn">×</button>
+  `;
+
+  todoList.appendChild(li);
+  input.value = '';
+  input.focus();
+}
+
+// ── Event Delegation (the heart of the app) ─────────────
+todoList.addEventListener('click', e => {
+  // Delete button
+  if (e.target.matches('.delete-btn')) {
+    e.target.closest('li').remove();
+    return;
+  }
+
+  // Checkbox → toggle done class
+  const checkbox = e.target.closest('input[type="checkbox"]');
+  if (checkbox) {
+    checkbox.closest('li').classList.toggle('done', checkbox.checked);
+  }
+});
+
+// Also allow clicking anywhere on <li> to toggle (better UX)
+todoList.addEventListener('click', e => {
+  const li = e.target.closest('li');
+  if (!li) return;
+
+  // Don't toggle if user clicked delete button or checkbox directly
+  if (e.target.matches('.delete-btn, input[type="checkbox"]')) return;
+
+  const checkbox = li.querySelector('input[type="checkbox"]');
+  checkbox.checked = !checkbox.checked;
+  li.classList.toggle('done', checkbox.checked);
+});
+
+// Add new todo on Enter
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    addTodo(e.target.value);
+  }
+});
+
+// Bonus: clear input on Escape
+input.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    input.value = '';
+    input.blur();
+  }
+});
+
+// ── Listen to our custom theme event (example) ──────────
+window.addEventListener(THEME_CHANGED, e => {
+  console.log(`Theme switched to → ${e.detail.theme}`);
+  // You could also animate something here, update charts, etc.
+});
+
+</script>
+</body>
+</html>
